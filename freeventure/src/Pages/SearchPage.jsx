@@ -3,7 +3,7 @@ import { API_KEY } from '../../config';
 import { handleFetch } from '../../utils';
 import { useState, useEffect } from 'react';
 import { useTheme } from '../ThemeContext';
-import Earth from "../assets/Earth.webp"
+import Earth from "../images/Earth.webp"
 
 const SearchPage = ({ setError }) => {
   const [weatherData, setWeatherData] = useState(null);

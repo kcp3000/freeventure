@@ -3,10 +3,10 @@ import { useState } from "react";
 import AstronomySearch from "../components/AstronomySearch";
 import { handleFetch } from "../../utils";
 import { API_KEY } from "../../config";
-import galaxy2 from "../assets/galaxy2.jpeg";
-import galaxyLight from "../assets/galaxyLight.jpg";
+import galaxy2 from "../images/galaxy2.jpeg";
+import galaxyLight from "../images/galaxyLight.jpg";
 import { useTheme } from "../ThemeContext";
-import earthIcon from "../assets/earthIcon.png"
+import earthIcon from "../images/earthIcon.png"
 
 
 

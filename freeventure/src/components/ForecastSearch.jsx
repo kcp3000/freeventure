@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTheme } from "../ThemeContext";
-import Earth from "../assets/Earth.webp"
+import Earth from "../images/Earth.webp"
 
 const ForecastSearch = ({ onSubmit }) => {
 

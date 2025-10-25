@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import Earth from "../assets/Earth.webp"
+import Earth from "../images/Earth.webp"
 import { useTheme } from "../ThemeContext"
 
 

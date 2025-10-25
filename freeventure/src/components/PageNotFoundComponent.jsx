@@ -1,5 +1,5 @@
 import Route from 'react';
-import Earth from "../assets/Earth.webp"
+import Earth from "../images/Earth.webp"
 
 const NotFoundPage = () => {
   return (
