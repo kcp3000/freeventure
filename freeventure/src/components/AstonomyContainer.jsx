@@ -1,7 +1,7 @@
-import sunrise from "../assets/sunrise.png"
-import sunsetIcon from "../assets/sunsetIcon.png"
-import moonriseIcon from "../assets/moonriseIcon.webp"
-import moonset1 from "../assets/moonset1.webp"
+import sunrise from "../images/sunrise.png"
+import sunsetIcon from "../images/sunsetIcon.png"
+import moonriseIcon from "../images/moonriseIcon.webp"
+import moonset1 from "../images/moonset1.webp"
 
 // fetching astronomy
 function AstronomyContainer({ astronomyData }) {
