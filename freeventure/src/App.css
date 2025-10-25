@@ -1,0 +1,547 @@
+@keyframes SPIN {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg)
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes earth-orbit {
+  from {
+    transform: rotate(0deg) translateX(220px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(220px) rotate(-360deg);
+  }
+}
+
+@keyframes moon-orbit {
+  from {
+    transform: rotate(0deg) translateX(75px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(75px) rotate(-360deg);
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    color: #CEDEDA;
+  }
+
+  50% {
+    color: #173B3B;
+  }
+
+  100% {
+    color: #CEDEDA;
+  }
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: helvetica;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.AppContent {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  /* background-color: grey; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 70px;
+  position: relative;
+  border-bottom: 1px solid;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.logoContainer {
+  translate: 1px 5px;
+}
+
+.buttonNavContainer button {
+  translate: 0px -3px
+}
+
+
+.buttonContainer {
+  display: flex;
+  margin: 1rem 0 0 1rem;
+}
+
+button {
+  border-style: none;
+  font-size: x-small;
+  border-radius: 3px;
+  padding: 4px;
+  transition: box-shadow 0.3s;
+}
+
+button:hover {
+  box-shadow: 0 0 5px 0 black;
+}
+
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+
+  margin: 7rem 0 6rem 0;
+  gap: 10rem;
+  animation: fadeIn 2s ease-in;
+}
+
+.headingNEarth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headingWeatherContainer {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.searchBarContainer form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.searchBarInput {
+  height: 50px;
+  width: 300px;
+  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.searchBarContainer button {
+  margin-top: 10px;
+}
+
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+
+  margin: 14rem 0 17rem 0;
+  gap: 10rem;
+}
+
+.headingWeatherContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.searchBarContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.searchBarContainer input {
+  height: 50px;
+  width: 300px;
+  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
+  border: none;
+}
+
+.searchBarContainer button {
+  margin-top: 10px;
+}
+
+.checkOtherWeather {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  animation: fadeIn 2s;
+}
+
+
+.weatherDataContainer {
+  position: relative;
+  margin-top: 10rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  gap: 7rem;
+  max-width: calc(3 * 1px * 7rem);
+  animation: fadeIn 1s;
+}
+
+.weatherIdxContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: solid 5px;
+  border-radius: 10px;
+  padding: 10px;
+  flex: 0 1 calc(27.33% - (2 * 7rem) / 2);
+  width: 100px;
+  box-sizing: border-box;
+  transition: border-bottom 0.3s, transform 0.2s;
+}
+
+.nameLocation {
+  padding: 10px;
+}
+
+.weatherIdxContainer caption {
+  margin-top: 20px;
+  font-size: 10px;
+}
+
+.weatherIdxContainer img {
+  padding-bottom: 15px;
+}
+
+.hiddenInfo {
+  display: flex;
+  font-size: 13px;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  border-radius: 5px;
+  transition: transform 0.3s, box-shadow 1s, visibility 0s, opacity 0.3s ease-in-out;
+}
+
+/* .hiddenInfoEarth {
+  display: flex;
+  width: 10px;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  border-radius: 5px;
+  transition: transform 0.3s, visibility 0s, opacity 0.3s ease-in-out;
+} */
+
+/* .hiddenInfoEarth img {
+  width: 100px;
+} */
+
+.weatherIdxContainer:hover {
+  transform: translate(5px, 5px);
+  border-bottom: solid 2px;
+}
+
+.weatherIdxContainer:hover .hiddenInfo {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-100%, 10%);
+  box-shadow: 12px 12px 0 0 black;
+}
+
+
+/* .weatherIdxContainer:hover .hiddenInfoEarth {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(250px, 100px);
+} */
+
+.weatherIdxContainer h3 {
+  padding-bottom: 10px;
+}
+
+.headingForecast {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  translate: 10px 9rem;
+}
+
+.forecastContainer {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.forecastPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forecastFormContainer {
+  display: flex;
+  margin-top: 10rem;
+}
+
+.forecastFormContainer form {
+  padding-left: 10px;
+}
+
+.forecastFormContainer input {
+  border: none;
+}
+
+.forecastFormContainer button {
+  margin-left: 8px;
+}
+
+.errorContainer {
+  display: flex;
+  align-items: center;
+}
+
+.forecastListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forecastListContainer li {
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forecastList {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 8rem;
+}
+
+.forecastHeaderContainer {
+  translate: 10px;
+
+}
+
+.individualList {
+  padding: 20px;
+  border-radius: 10px;
+  transition: box-shadow 0.3s;
+}
+
+.individualList:hover {
+  box-shadow: 0px 7px 5px 0px black;
+}
+
+.individualList p {
+  font-size: 13px;
+}
+
+
+.notFoundContainer {
+  font-size: 20px;
+  display: flex;
+  padding-top: 10rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.outsideContainer {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 1s;
+}
+
+
+.sunrise {
+  display: flex;
+  align-items: center;
+}
+
+#sunrisePic {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.sunset {
+  display: flex;
+  align-items: center;
+}
+
+#sunsetPic {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.moonRise {
+  display: flex;
+  align-items: center;
+}
+
+#moonrisePic {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.moonset {
+  display: flex;
+  align-items: center;
+}
+
+#moonsetPic {
+  width: 30px;
+  margin-left: 10px;
+}
+
+
+.sun {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  background: rgb(255, 81, 0);
+  position: absolute;
+  box-shadow: 0 0 75px rgba(255, 141, 0, 1);
+}
+
+.astroSearch {
+  margin-top: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px
+}
+
+.formContainerAstro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100vh;
+  /* Take up the remaining vertical space */
+  padding: 10px;
+  /* Optional: Add padding if needed */
+  box-sizing: border-box;
+  position: relative;
+}
+
+.astroSearch button {
+  margin-top: 10px;
+}
+
+.astroSearch input {
+  border: none;
+}
+
+p {
+  text-align: center;
+  /* Center text if needed */
+  margin: 10px 0;
+  /* Space above and below the <p> tag */
+}
+
+.astroCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-style: solid;
+  /* padding-left: 20px; */
+  position: relative;
+  width: 230px;
+  border-radius: 25px;
+  margin: auto;
+  animation: fadeIn 1s;
+}
+
+.earth::after {
+  content: "";
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: url("src/assets/moon.png");
+  background-size: cover;
+  animation: moon-orbit 3.5s linear infinite
+}
+
+
+.headingContainer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+#earth {
+  height: 50px;
+  animation: SPIN 10s infinite;
+}
+
+.forecastEarthContainer {
+  padding-right: 10px;
+  animation: SPIN 20s infinite;
+
+}
+
+.weatherIcon {
+  width: 70px;
+}
+
+.nameLocation {
+  padding: 10px;
+  margin: 5px
+}
