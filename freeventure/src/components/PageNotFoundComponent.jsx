@@ -1,4 +1,4 @@
-import Route from 'react';
+
 import Earth from "../images/Earth.webp"
 
 const NotFoundPage = () => {
