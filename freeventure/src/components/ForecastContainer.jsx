@@ -1,5 +1,5 @@
 import { useTheme } from "../ThemeContext"
-import React from "react"
+
 
 function ForecastContainer({ forecast }) {
 
